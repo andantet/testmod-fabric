@@ -1,0 +1,52 @@
+plugins {
+  id 'idea'
+  id 'eclipse'
+  id 'fabric-loom' version '0.12-SNAPSHOT'
+}
+
+/* Setup */
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+loom.runtimeOnlyLog4j = true
+
+version = UUID.randomUUID().toString().substring(0, 8)
+group = project.maven_group
+
+tasks.withType(JavaCompile).configureEach { it.options.release = 17 }
+
+processResources {
+  inputs.property 'version', version
+  filesMatching('fabric.mod.json') { expand 'version': version }
+}
+
+/* Dependencies */
+
+repositories {
+  maven {
+    name = 'Modding Playground'
+    url  = 'https://raw.githubusercontent.com/moddingplayground/maven/main/'
+  }
+
+  maven {
+    name = 'Shedaniel'
+    url  = 'https://maven.shedaniel.me/'
+  }
+
+  maven {
+    name = 'Terraformers'
+    url  = 'https://maven.terraformersmc.com/releases/'
+  }
+}
+
+dependencies {
+  minecraft "com.mojang:minecraft:${project.ver_minecraft}"
+  mappings "net.fabricmc:yarn:${project.ver_minecraft}+build.${project.ver_yarn}:v2"
+  modImplementation "net.fabricmc:fabric-loader:${project.ver_loader}"
+
+  // api
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${project.ver_fabric}"
+  modImplementation("net.moddingplayground.frame:frame-fabric:${project.ver_frame}")
+
+  // integration
+  modImplementation "com.terraformersmc:modmenu:${project.ver_mod_menu}"
+}
