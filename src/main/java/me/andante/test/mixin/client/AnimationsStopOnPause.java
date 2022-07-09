@@ -1,5 +1,6 @@
 package me.andante.test.mixin.client;
 
+import me.andante.test.api.client.config.TestConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -15,6 +16,7 @@ public class AnimationsStopOnPause {
     public static class SpriteAnimationMixin {
         @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
         private void onTick(CallbackInfo ci) {
+            if (!TestConfig.INSTANCE.animationsStopOnPause.getValue()) return;
             if (MinecraftClient.getInstance().isPaused()) ci.cancel();
         }
     }
