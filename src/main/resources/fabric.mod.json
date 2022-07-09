@@ -25,6 +25,7 @@
     "main": [ "me.andante.test.impl.TestImpl" ]
   },
   "mixins": [ "testmod.mixins.json" ],
+  "accessWidener": "testmod.accesswidener",
 
   "depends": {
     "java": ">=17",

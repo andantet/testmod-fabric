@@ -50,3 +50,7 @@ dependencies {
   // integration
   modImplementation "com.terraformersmc:modmenu:${project.ver_mod_menu}"
 }
+
+loom {
+  accessWidenerPath = file("src/main/resources/testmod.accesswidener")
+}
