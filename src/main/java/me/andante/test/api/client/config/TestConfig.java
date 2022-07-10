@@ -22,6 +22,7 @@ public class TestConfig extends Config {
 
     public final BooleanOption versionOnlyDebugHud = add("version_only_debug_hud", BooleanOption.of(true));
     public final BooleanOption animationsStopOnPause = add("animations_stop_on_pause", BooleanOption.of(true));
+    public final BooleanOption waila = add("waila", BooleanOption.of(true));
 
     public TestConfig(File file) {
         super(file);

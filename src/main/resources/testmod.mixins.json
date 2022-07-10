@@ -5,6 +5,7 @@
   "package": "me.andante.test.mixin",
   "client": [
     "client.AnimationsStopOnPause$SpriteAnimationMixin",
+    "client.BasicWAILA$InGameHudMixin",
     "client.VersionOnlyDebugHud$DebugHudMixin",
     "client.VersionOnlyDebugHud$InGameHudMixin"
   ],
