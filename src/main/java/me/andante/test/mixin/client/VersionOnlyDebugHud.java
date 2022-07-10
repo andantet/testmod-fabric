@@ -1,7 +1,7 @@
 package me.andante.test.mixin.client;
 
 import com.google.common.collect.Lists;
-import me.andante.test.api.client.config.TestConfig;
+import me.andante.test.api.client.config.TestClientConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.SharedConstants;
@@ -30,7 +30,7 @@ public class VersionOnlyDebugHud {
 
         @Inject(method = "getLeftText", at = @At("HEAD"), cancellable = true)
         private void onGetLeftText(CallbackInfoReturnable<List<String>> cir) {
-            if (!TestConfig.INSTANCE.versionOnlyDebugHud.getValue()) return;
+            if (!TestClientConfig.INSTANCE.versionOnlyDebugHud.getValue()) return;
 
             if (!this.client.options.debugEnabled) {
                 cir.setReturnValue(Lists.newArrayList("Minecraft " + SharedConstants.getGameVersion().getName() + " (" + this.client.getGameVersion() + "/" + ClientBrandRetriever.getClientModName() + ")"));
@@ -39,7 +39,7 @@ public class VersionOnlyDebugHud {
 
         @Redirect(method = "renderLeftText", at = @At(value = "INVOKE", target = "Ljava/util/List;add(Ljava/lang/Object;)Z"))
         private <T> boolean onRenderLeftTextAdd(List<T> list, T text) {
-            if (TestConfig.INSTANCE.versionOnlyDebugHud.getValue()) {
+            if (TestClientConfig.INSTANCE.versionOnlyDebugHud.getValue()) {
                 if (!this.client.options.debugEnabled) return false;
             }
 
@@ -48,7 +48,7 @@ public class VersionOnlyDebugHud {
 
         @Inject(method = "renderRightText", at = @At("HEAD"), cancellable = true)
         private void onRenderRightText(MatrixStack matrices, CallbackInfo ci) {
-            if (!TestConfig.INSTANCE.versionOnlyDebugHud.getValue()) return;
+            if (!TestClientConfig.INSTANCE.versionOnlyDebugHud.getValue()) return;
             if (!this.client.options.debugEnabled) ci.cancel();
         }
     }
@@ -60,7 +60,7 @@ public class VersionOnlyDebugHud {
 
         @Redirect(method = "render", at = @At(value = "FIELD", target = "Lnet/minecraft/client/option/GameOptions;debugEnabled:Z"))
         private boolean onRender(GameOptions options) {
-            if (!TestConfig.INSTANCE.versionOnlyDebugHud.getValue()) return this.client.options.debugEnabled;
+            if (!TestClientConfig.INSTANCE.versionOnlyDebugHud.getValue()) return this.client.options.debugEnabled;
             return true;
         }
     }

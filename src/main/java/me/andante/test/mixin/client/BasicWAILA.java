@@ -2,7 +2,7 @@ package me.andante.test.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.andante.test.api.world.ExclusiveRaycastContext;
-import me.andante.test.api.client.config.TestConfig;
+import me.andante.test.api.client.config.TestClientConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -43,7 +43,7 @@ public class BasicWAILA {
 
         @Inject(method = "render", at = @At("TAIL"))
         private void renderBasicWAILA(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
-            if (!TestConfig.INSTANCE.waila.getValue()) return;
+            if (!TestClientConfig.INSTANCE.waila.getValue()) return;
 
             if (this.client.options.debugEnabled) return;
 

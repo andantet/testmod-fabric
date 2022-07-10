@@ -15,16 +15,16 @@ import java.io.File;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.*;
 
 @Environment(EnvType.CLIENT)
-public class TestConfig extends Config {
+public class TestClientConfig extends Config {
     private static final String RELOAD_KEY = "command." + Test.MOD_ID + ":config.reload";
 
-    public static final TestConfig INSTANCE = new TestConfig(createFile("testmod")).load();
+    public static final TestClientConfig INSTANCE = new TestClientConfig(createFile("testmod")).load();
 
     public final BooleanOption versionOnlyDebugHud = add("version_only_debug_hud", BooleanOption.of(true));
     public final BooleanOption animationsStopOnPause = add("animations_stop_on_pause", BooleanOption.of(true));
     public final BooleanOption waila = add("waila", BooleanOption.of(true));
 
-    public TestConfig(File file) {
+    public TestClientConfig(File file) {
         super(file);
 
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {

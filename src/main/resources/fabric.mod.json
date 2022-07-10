@@ -22,7 +22,7 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [ "me.andante.test.impl.TestImpl" ]
+    "client": [ "me.andante.test.impl.client.TestClientImpl" ]
   },
   "mixins": [ "testmod.mixins.json" ],
   "accessWidener": "testmod.accesswidener",
