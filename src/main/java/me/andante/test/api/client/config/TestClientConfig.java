@@ -23,6 +23,7 @@ public class TestClientConfig extends Config {
     public final BooleanOption versionOnlyDebugHud = add("version_only_debug_hud", BooleanOption.of(true));
     public final BooleanOption animationsStopOnPause = add("animations_stop_on_pause", BooleanOption.of(true));
     public final BooleanOption waila = add("waila", BooleanOption.of(true));
+    public final BooleanOption fishingBobberGlowing = add("fishing_bobber_glowing", BooleanOption.of(true));
 
     public TestClientConfig(File file) {
         super(file);
