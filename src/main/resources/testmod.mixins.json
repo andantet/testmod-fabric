@@ -9,6 +9,8 @@
     "client.BasicWAILA$InGameHudMixin",
     "client.FishingBobberAccessibility$EntityMixin",
     "client.FishingBobberAccessibility$FishingBobberEntityAccessor",
+    "client.SoundsShouldNotStop$MinecraftClientMixin",
+    "client.SoundsShouldNotStop$SoundManagerMixin",
     "client.VersionOnlyDebugHud$DebugHudMixin",
     "client.VersionOnlyDebugHud$InGameHudMixin"
   ],

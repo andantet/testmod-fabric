@@ -25,6 +25,9 @@ public class TestClientConfig extends Config {
     public final BooleanOption waila = add("waila", BooleanOption.of(true));
     public final BooleanOption fishingBobberGlowing = add("fishing_bobber_glowing", BooleanOption.of(true));
 
+    public final BooleanOption soundsShouldNotStopSoundOptions = soundsShouldNotStop("sound_options", BooleanOption.of(true));
+    public final BooleanOption soundsShouldNotStopResetScreen = soundsShouldNotStop("reset_screen", BooleanOption.of(false));
+
     public TestClientConfig(File file) {
         super(file);
 
@@ -45,5 +48,9 @@ public class TestClientConfig extends Config {
 
     private <T, O extends Option<T>> O add(String id, O option) {
         return this.add(new Identifier(Test.MOD_ID, id), option);
+    }
+
+    private <T, O extends Option<T>> O soundsShouldNotStop(String id, O option) {
+        return add("sounds_should_not_stop/" + id, option);
     }
 }
