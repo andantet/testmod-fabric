@@ -1,7 +1,7 @@
 plugins {
   id 'idea'
   id 'eclipse'
-  id 'fabric-loom' version '0.12-SNAPSHOT'
+  id 'fabric-loom' version '0.13-SNAPSHOT'
 }
 
 /* Setup */
@@ -27,10 +27,19 @@ repositories {
     url  = 'https://raw.githubusercontent.com/moddingplayground/maven/main/'
   }
 
+  /* Frame */
+
   maven {
     name = 'Shedaniel'
     url  = 'https://maven.shedaniel.me/'
   }
+
+  maven {
+    name = 'Jitpack'
+    url  = 'https://jitpack.io/'
+  }
+
+  /* Mod Menu */
 
   maven {
     name = 'Terraformers'
