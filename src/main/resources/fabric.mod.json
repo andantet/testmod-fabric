@@ -31,7 +31,6 @@
     "java": ">=17",
     "minecraft": ">=1.19",
     "fabricloader": ">=0.14",
-    "fabric-api": ">=0.59",
-    "frame": ">=0.26"
+    "fabric": ">=0.58"
   }
 }
