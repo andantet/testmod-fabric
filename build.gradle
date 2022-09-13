@@ -22,29 +22,6 @@ processResources {
 /* Dependencies */
 
 repositories {
-  maven {
-    name = 'Modding Playground'
-    url  = 'https://raw.githubusercontent.com/moddingplayground/maven/main/'
-  }
-
-  /* Frame */
-
-  maven {
-    name = 'Shedaniel'
-    url  = 'https://maven.shedaniel.me/'
-  }
-
-  maven {
-    name = 'Jitpack'
-    url  = 'https://jitpack.io/'
-  }
-
-  /* Mod Menu */
-
-  maven {
-    name = 'Terraformers'
-    url  = 'https://maven.terraformersmc.com/releases/'
-  }
 }
 
 dependencies {
@@ -52,14 +29,5 @@ dependencies {
   mappings "net.fabricmc:yarn:${project.ver_minecraft}+build.${project.ver_yarn}:v2"
   modImplementation "net.fabricmc:fabric-loader:${project.ver_loader}"
 
-  // api
   modImplementation "net.fabricmc.fabric-api:fabric-api:${project.ver_fabric}"
-  include modImplementation("net.moddingplayground.frame:frame-config-v0:${project.ver_config}")
-
-  // integration
-  modImplementation "com.terraformersmc:modmenu:${project.ver_mod_menu}"
-}
-
-loom {
-  accessWidenerPath = file("src/main/resources/testmod.accesswidener")
 }

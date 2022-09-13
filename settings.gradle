@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "testmod-fabric"
+rootProject.name = "nochickenrender-fabric"

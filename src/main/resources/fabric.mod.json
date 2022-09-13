@@ -1,31 +1,22 @@
 {
   "schemaVersion": 1,
 
-  "id": "testmod",
+  "id": "nochickenrender",
   "version": "${version}",
-  "license": [
-    "MIT (Code)",
-    "All Rights Reserved (Assets)"
-  ],
 
-  "name": "Test Mod",
-  "icon": "assets/testmod/icon.png",
-  "description": "Tehe funni test mod",
+  "name": "No Chicken Render",
+  "description": "",
 
   "authors": [
-    "Daniel Orr (Andante)"
   ],
   "contact": {
-    "sources": "https://github.com/moddingplayground/testmod-fabric",
-    "issues": "https://github.com/moddingplayground/testmod-fabric/issues"
   },
 
   "environment": "*",
   "entrypoints": {
-    "client": [ "me.andante.test.impl.client.TestClientImpl" ]
+    "client": [ "me.andante.nochickenrender.NoChickenRender" ]
   },
-  "mixins": [ "testmod.mixins.json" ],
-  "accessWidener": "testmod.accesswidener",
+  "mixins": [ "nochickenrender.mixins.json" ],
 
   "depends": {
     "java": ">=17",
