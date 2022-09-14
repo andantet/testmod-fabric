@@ -5,7 +5,7 @@
   "package": "me.andante.nochickenrender.mixin",
   "mixins": [],
   "client": [
-    "client.MobEntityRendererMixin"
+    "client.EntityRenderDispatcherMixin"
   ],
   "injectors": {
     "defaultRequire": 1
